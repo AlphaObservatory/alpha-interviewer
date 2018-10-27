@@ -65,31 +65,16 @@ end
 
 proxy "/_redirects", "/templates/redirects.txt"
 
-# dato.tap do |dato|
-#   dato.articles.each do |article|
-#     proxy(
-#       '/articles/#{article.slug}.html',
-#       '/templates/article.html',
-#       locals: { article: article }
-#     )
-#   end
-
-#   paginate(
-#     dato.articles.sort_by(&:published_at).reverse,
-#     '/articles',
-#     '/templates/articles.html'
-#   )
-
-#   MULTILANG SAMPLES
-
-#   [:en, :it].each do |locale|
-#     I18n.with_locale(locale) do
-#       dato.aritcles.each do |article|
-#         I18n.locale = locale
-#         proxy "/#{locale}/articles/#{article.slug}/index.html", "/templates/article_template.html", :locals => { article: article }, ignore: true, locale: locale
-#       end
-#     end
-#   end
+dato.tap do |dato|
+  [:en, :it].each do |locale|
+    I18n.with_locale(locale) do
+      dato.steps.each do |step|
+        I18n.locale = locale
+        proxy "/#{locale}/#{step.codename}/index.html", "/templates/step.html", :locals => { step: step }, ignore: true, locale: locale
+      end
+    end
+  end
+end
 
 #   [:en, :it].each do |locale|
 #     I18n.with_locale(locale) do

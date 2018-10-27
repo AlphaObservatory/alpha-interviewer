@@ -1,5 +1,5 @@
 .wrap
-  - step = dato.steps.select{|s| s.codename == "start" }.first
+  - start = dato.steps.select{|s| s.codename == "start" }.first
 
   .beta = step.group.name
   pre Code: #{step.codename}
@@ -12,7 +12,7 @@
 
     - if step.next_step.present?
       - next_step = dato.steps.select{|s| s.codename == step.next_step.codename }.first
-      = link_to "NEXT", "/#{locale}/#{next_step.codename}", class: "button"
+      = link_to "NEXT", "/#{next_step.codename}", class: "button"
 
     - else
       - if step.no_step.present?
