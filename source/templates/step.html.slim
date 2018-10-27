@@ -1,23 +1,25 @@
 .wrap
-  - start = dato.steps.select{|s| s.codename == "start" }.first
-
   .beta = step.group.name
   pre Code: #{step.codename}
+  pre Passo: #{step.position} di #{dato.steps.count}
 
+  = inline_svg "mentor.svg"
+
+  button class="btn" data-clipboard-action="copy" data-clipboard-target="#js-clipboard" Copy to clipboard
   .formatted-text
 
-    .space--both-5 == step.text
+    .space--both-5#js-clipboard == step.text
 
     blockquote == step.hint
 
     - if step.next_step.present?
       - next_step = dato.steps.select{|s| s.codename == step.next_step.codename }.first
-      = link_to "NEXT", "/#{next_step.codename}", class: "button"
+      = link_to "NEXT", "/#{locale}/#{next_step.codename}", class: "button"
 
     - else
       - if step.no_step.present?
         - no_step = dato.steps.select{|s| s.codename == step.no_step.codename }.first
-        = link_to "NO", "/#{no_step.codename}", class: "button"
+        = link_to "NO", "/#{locale}/#{no_step.codename}", class: "button"
       - if step.yes_step.present?
         - yes_step = dato.steps.select{|s| s.codename == step.yes_step.codename }.first
-        = link_to "YES", "/#{yes_step.codename}", class: "button"
+        = link_to "YES", "/#{locale}/#{yes_step.codename}", class: "button"

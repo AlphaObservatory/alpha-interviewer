@@ -2,6 +2,11 @@
   .wrap
     .top-bar__inner
       .nav--dots.top-bar__nav
+        .nav__item.top-bar__nav__item
+          = link_to "Restart", "/#{I18n.locale}"
+        .nav__item.top-bar__nav__item
+          = link_to "Interviews", "https://survey.alphaobservatory.org/#{I18n.locale}", target: "_blank"
+
         - [:it, :en].each do |l|
           .nav__item.top-bar__nav__item class=("is-active" if I18n.locale == l)
             a href="/#{l}" #{t("langs.#{l}")}
