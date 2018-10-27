@@ -1,25 +1,38 @@
-.wrap
-  .beta = step.group.name
-  pre Code: #{step.codename}
-  pre Passo: #{step.position} di #{dato.steps.count}
+.page
+  .page__header
+    = partial "partials/top-menu"
 
-  = inline_svg "mentor.svg"
+  .page__content
 
-  button class="btn" data-clipboard-action="copy" data-clipboard-target="#js-clipboard" Copy to clipboard
-  .formatted-text
+    .content
+      .content__title = step.group.name
+      - if step.text.present?
+        .content__area
+          .formatted-text#js-clipboard
+            == step.text
 
-    .space--both-5#js-clipboard == step.text
+        .content__action
+          .button.btn data-clipboard-action="copy" data-clipboard-target="#js-clipboard" Copy
 
-    blockquote == step.hint
+  .page__mentor
 
-    - if step.next_step.present?
-      - next_step = dato.steps.select{|s| s.codename == step.next_step.codename }.first
-      = link_to "NEXT", "/#{locale}/#{next_step.codename}", class: "button"
+    .page__mentor__meta
+      pre Passo: #{step.position} di #{dato.steps.count} (#{step.codename})
 
-    - else
-      - if step.no_step.present?
-        - no_step = dato.steps.select{|s| s.codename == step.no_step.codename }.first
-        = link_to "NO", "/#{locale}/#{no_step.codename}", class: "button"
-      - if step.yes_step.present?
-        - yes_step = dato.steps.select{|s| s.codename == step.yes_step.codename }.first
-        = link_to "YES", "/#{locale}/#{yes_step.codename}", class: "button"
+    .page__mentor__hint == step.hint
+
+    .page__mentor__buttons
+      - if step.next_step.present?
+        - next_step = dato.steps.select{|s| s.codename == step.next_step.codename }.first
+        = link_to "NEXT", "/#{locale}/#{next_step.codename}", class: "button button--rev"
+
+      - else
+        - if step.no_step.present?
+          - no_step = dato.steps.select{|s| s.codename == step.no_step.codename }.first
+          = link_to "NO", "/#{locale}/#{no_step.codename}", class: "button button--rev"
+        - if step.yes_step.present?
+          - yes_step = dato.steps.select{|s| s.codename == step.yes_step.codename }.first
+          = link_to "YES", "/#{locale}/#{yes_step.codename}", class: "button button--rev"
+
+    = inline_svg "mentor.svg", size: "70*70", class: "page__mentor__icon"
+
