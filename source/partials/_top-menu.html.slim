@@ -1,0 +1,7 @@
+.top-bar
+  .wrap
+    .top-bar__inner
+      .nav--dots.top-bar__nav
+        - [:it, :en].each do |l|
+          .nav__item.top-bar__nav__item class=("is-active" if I18n.locale == l)
+            a href="/#{l}" #{t("langs.#{l}")}

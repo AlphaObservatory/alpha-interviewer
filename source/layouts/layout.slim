@@ -3,6 +3,8 @@ html lang=I18n.locale
   head = partial "partials/head"
   body
     .svg-sprite-inliner= partial "/fonts/svg/sprite.svg"
+    = partial "partials/top-menu"
+
     = yield
 
     = partial "partials/footer"

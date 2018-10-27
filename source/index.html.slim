@@ -1,1 +1,11 @@
-h1.alpha Hi there!
+javascript:
+  var language = window.navigator.userLanguage || window.navigator.language;
+  switch (language.substring(0,2)){
+   case "it":
+    l = "it"
+    break;
+   default:
+    l = "en"
+    break;
+  }
+  window.location.href = "/" + l + "/"

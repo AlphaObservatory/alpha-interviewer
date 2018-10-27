@@ -1,0 +1,25 @@
+en:
+  survey: "Survey"
+
+  langs:
+    it: Italiano
+    en: English
+    es: Español
+
+  ui:
+    read_more: "Read more..."
+    follow_us: "Follow us"
+    footer: "Alpha Observatory Ita/Eng: +39 349 536 4554 | Ita/Esp: +39 346 1476543 | alphaobservatory@gmail.com"
+    cta: "Take the survey!"
+    news: "News"
+    total: "<strong class='js-total_interviews'></strong> surveys completed"
+
+  menu:
+    home: "Home"
+    about: "About"
+    survey: "Survey"
+    news: "News"
+    blog: "Blog"
+    contact: "Join the team"
+    partners: Partners
+    analytics: Analytics
