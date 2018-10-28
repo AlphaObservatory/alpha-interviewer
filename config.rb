@@ -66,7 +66,7 @@ end
 proxy "/_redirects", "/templates/redirects.txt"
 
 dato.tap do |dato|
-  [:en, :it].each do |locale|
+  [:en, :it, :es, :fr, :zh].each do |locale|
     I18n.with_locale(locale) do
       dato.steps.each do |step|
         I18n.locale = locale
