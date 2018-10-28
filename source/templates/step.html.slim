@@ -1,5 +1,5 @@
 = partial "partials/top-menu"
-.wrap
+.wrap--on-lap
 
   .content.space--bottom-2
     .content__title class=("content__title--start" if step.codename == "start") = step.group.name
@@ -13,15 +13,15 @@
 
   .hint
     .grid--center
-      .grid__item.width-3-12
+      .grid__item.width-2-12
         = inline_svg "mentor.svg", class: "hint__icon"
 
-      .grid__item.width-9-12
+      .grid__item.width-7-12
         .hint__baloon
           p.milli title=step.codename Step #{step.position}/#{dato.steps.count}
           == step.hint
 
-    .space--top-3
+    .space--top-1
       .hint__buttons
         - if step.next_step.present?
           - next_step = dato.steps.select{|s| s.codename == step.next_step.codename }.first
