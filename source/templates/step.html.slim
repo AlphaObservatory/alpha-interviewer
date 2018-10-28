@@ -1,4 +1,4 @@
-.page
+.page.wrap
   .page__header
     = partial "partials/top-menu"
 
@@ -16,22 +16,23 @@
 
   .page__mentor
     .hint
-      p.milli title=step.codename Step #{step.position}/#{dato.steps.count}
-      == step.hint
+      .hint__body
+        .hint__baloon
+          p.milli title=step.codename Step #{step.position}/#{dato.steps.count}
+          == step.hint
+
+        .hint__buttons
+          - if step.next_step.present?
+            - next_step = dato.steps.select{|s| s.codename == step.next_step.codename }.first
+            = link_to dato.ui.next_button_label, "/#{locale}/#{next_step.codename}", class: "button"
+
+          - else
+            - if step.no_step.present?
+              - no_step = dato.steps.select{|s| s.codename == step.no_step.codename }.first
+              = link_to dato.ui.no_button_label, "/#{locale}/#{no_step.codename}", class: "button"
+            - if step.yes_step.present?
+              - yes_step = dato.steps.select{|s| s.codename == step.yes_step.codename }.first
+              = link_to dato.ui.yes_button_label, "/#{locale}/#{yes_step.codename}", class: "button"
 
 
-    .page__mentor__buttons
-      - if step.next_step.present?
-        - next_step = dato.steps.select{|s| s.codename == step.next_step.codename }.first
-        = link_to dato.ui.next_button_label, "/#{locale}/#{next_step.codename}", class: "button"
-
-      - else
-        - if step.no_step.present?
-          - no_step = dato.steps.select{|s| s.codename == step.no_step.codename }.first
-          = link_to dato.ui.no_button_label, "/#{locale}/#{no_step.codename}", class: "button"
-        - if step.yes_step.present?
-          - yes_step = dato.steps.select{|s| s.codename == step.yes_step.codename }.first
-          = link_to dato.ui.yes_button_label, "/#{locale}/#{yes_step.codename}", class: "button"
-
-    = inline_svg "mentor.svg", size: "70*70", class: "page__mentor__icon"
-
+      = inline_svg "mentor.svg", class: "hint__icon"

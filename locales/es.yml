@@ -1,33 +1,7 @@
 es:
-  survey: "Encuesta"
   langs:
     it: Italiano
     en: English
     es: Español
-
-
-  ui:
-    read_more: "lee..."
-    follow_us: "Follow us"
-    footer: "Alpha Observatory Ita/Eng: +39 349 536 4554 | Ita/Esp: +39 346 1476543 | alphaobservatory@gmail.com"
-    cta: "Haz el test!"
-    news: "News"
-    total: "<strong class='js-total_interviews'></strong> encuestas completadas"
-
-  menu:
-    home: "Home"
-    about: "Projecto"
-    survey: "Encuesta"
-    news: "News"
-    blog: "Blog"
-    contact: "Únete al team"
-    partners: Partners
-    analytics: Analytics
-
-  defaults: &defaults
-    day_names:
-      [~, Lunes, Martes, Miércoles, Jueves, Viernes, Sábado, Domingo]
-    month_names:
-      [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
-    formats:
-       default: "%d. %B %Y"
+    fr: Francaise
+    zh: Chinese

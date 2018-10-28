@@ -1,4 +1,9 @@
 .hint
+
+.hint__body
+  position: relative
+
+.hint__baloon
   background-color: $primary-color
   +padding(2)
   border-radius: 10px
@@ -7,3 +12,22 @@
   left: 20px
   bottom: 80px
   max-width: 60%
+
+.hint__icon
+  position: absolute
+  bottom: 0
+  left: 10px
+  width: 70px
+
+.hint__buttons
+  position: absolute
+  bottom: 10px
+  right: 10px
+
++at-breakpoint(desk)
+  .hint__icon
+    width: 120px
+
+  .hint__baloon
+    bottom: 130px
+    max-width: 300px

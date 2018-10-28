@@ -1,30 +1,7 @@
 it:
-  survey: "Questionario"
   langs:
     it: Italiano
     en: English
     es: Español
-
-  ui:
-    start_button: "Inizia nuova intervista"
-
-  menu:
-    home: "Home"
-    about: "Chi siamo"
-    survey: "Questionario"
-    news: "News"
-    blog: "Blog"
-    contact: "Unisciti al team"
-    partners: Partners
-    analytics: Analytics
-
-  about:
-      title:
-
-  defaults: &defaults
-    day_names:
-      [~, Lunedì, Martedì, Mercoledì, Giovedì, Venerdì, Sabato, Domenica]
-    month_names:
-      [~, Gennaio, Febbraio, Marzo, Apria, Maggio, Giugno, Luglio, Agosto, Settembre, Ottobre, Novembre, Dicembre]
-    formats:
-       default: "%d. %B %Y"
+    fr: Francaise
+    zh: Chinese
