@@ -1,2 +1,11 @@
-.wrap
-  = link_to "START NEW INTERVIEW", "/#{locale}/start", class: "button"
+= partial "partials/top-menu"
+.home
+
+  = image_tag "images/logo.jpg", class: "home__logo"
+  .home__action
+    = link_to dato.ui.start_button_label, "/#{locale}/start", class: "button--rev"
+  .wrap
+    .home__abstract
+      .formatted-content == dato.ui.home_intro
+
+

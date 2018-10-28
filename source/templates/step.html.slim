@@ -12,27 +12,26 @@
             == step.text
 
         .content__action
-          .button.btn data-clipboard-action="copy" data-clipboard-target="#js-clipboard" Copy
+          .button.btn data-clipboard-action="copy" data-clipboard-target="#js-clipboard" #{dato.ui.copy_button_label}
 
   .page__mentor
+    .hint
+      p.milli title=step.codename Step #{step.position}/#{dato.steps.count}
+      == step.hint
 
-    .page__mentor__meta
-      pre Passo: #{step.position} di #{dato.steps.count} (#{step.codename})
-
-    .page__mentor__hint == step.hint
 
     .page__mentor__buttons
       - if step.next_step.present?
         - next_step = dato.steps.select{|s| s.codename == step.next_step.codename }.first
-        = link_to "NEXT", "/#{locale}/#{next_step.codename}", class: "button button--rev"
+        = link_to dato.ui.next_button_label, "/#{locale}/#{next_step.codename}", class: "button"
 
       - else
         - if step.no_step.present?
           - no_step = dato.steps.select{|s| s.codename == step.no_step.codename }.first
-          = link_to "NO", "/#{locale}/#{no_step.codename}", class: "button button--rev"
+          = link_to dato.ui.no_button_label, "/#{locale}/#{no_step.codename}", class: "button"
         - if step.yes_step.present?
           - yes_step = dato.steps.select{|s| s.codename == step.yes_step.codename }.first
-          = link_to "YES", "/#{locale}/#{yes_step.codename}", class: "button button--rev"
+          = link_to dato.ui.yes_button_label, "/#{locale}/#{yes_step.codename}", class: "button"
 
     = inline_svg "mentor.svg", size: "70*70", class: "page__mentor__icon"
 

@@ -6,12 +6,7 @@ it:
     es: Español
 
   ui:
-    read_more: "Scopri di più..."
-    follow_us: "Seguici"
-    footer: "Alpha Observatory Ita/Eng: +39 349 536 4554 | Ita/Esp: +39 346 1476543 | alphaobservatory@gmail.com"
-    cta: "Fai il questionario!"
-    news: "News"
-    total: "<strong class='js-total_interviews'></strong> inchieste completate"
+    start_button: "Inizia nuova intervista"
 
   menu:
     home: "Home"
