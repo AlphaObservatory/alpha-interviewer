@@ -1,10 +1,10 @@
 .top-bar
   .wrap
     .top-bar__inner
+      .top-bar__logo
+        = link_to "/#{I18n.locale}" do
+          = image_tag "images/logo-wide.jpg"
       .nav--dots.top-bar__nav
-        .nav__item.top-bar__nav__item
-          = link_to dato.ui.restart_button_label, "/#{I18n.locale}"
-
         - [:it, :en, :es, :fr, :zh ].each do |l|
           .nav__item.top-bar__nav__item class=("is-active" if I18n.locale == l)
             a href="/#{l}" #{t("langs.#{l}")}

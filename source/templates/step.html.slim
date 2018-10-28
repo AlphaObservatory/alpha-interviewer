@@ -1,38 +1,37 @@
-.page.wrap
-  .page__header
-    = partial "partials/top-menu"
+= partial "partials/top-menu"
+.wrap
 
-  .page__content
+  .content.space--bottom-2
+    .content__title class=("content__title--start" if step.codename == "start") = step.group.name
+    - if step.text.present?
+      .content__area
+        .formatted-content#js-clipboard
+          == step.text
 
-    .content
-      .content__title = step.group.name
-      - if step.text.present?
-        .content__area
-          .formatted-content#js-clipboard
-            == step.text
+      .content__action
+        .button.btn data-clipboard-action="copy" data-clipboard-target="#js-clipboard" #{dato.ui.copy_button_label}
 
-        .content__action
-          .button.btn data-clipboard-action="copy" data-clipboard-target="#js-clipboard" #{dato.ui.copy_button_label}
+  .hint
+    .grid--center
+      .grid__item.width-3-12
+        = inline_svg "mentor.svg", class: "hint__icon"
 
-  .page__mentor
-    .hint
-      .hint__body
+      .grid__item.width-9-12
         .hint__baloon
           p.milli title=step.codename Step #{step.position}/#{dato.steps.count}
           == step.hint
 
-        .hint__buttons
-          - if step.next_step.present?
-            - next_step = dato.steps.select{|s| s.codename == step.next_step.codename }.first
-            = link_to dato.ui.next_button_label, "/#{locale}/#{next_step.codename}", class: "button"
+    .space--top-3
+      .hint__buttons
+        - if step.next_step.present?
+          - next_step = dato.steps.select{|s| s.codename == step.next_step.codename }.first
+          = link_to dato.ui.next_button_label, "/#{locale}/#{next_step.codename}", class: "button"
 
-          - else
-            - if step.no_step.present?
-              - no_step = dato.steps.select{|s| s.codename == step.no_step.codename }.first
-              = link_to dato.ui.no_button_label, "/#{locale}/#{no_step.codename}", class: "button"
-            - if step.yes_step.present?
-              - yes_step = dato.steps.select{|s| s.codename == step.yes_step.codename }.first
-              = link_to dato.ui.yes_button_label, "/#{locale}/#{yes_step.codename}", class: "button"
+        - else
+          - if step.no_step.present?
+            - no_step = dato.steps.select{|s| s.codename == step.no_step.codename }.first
+            = link_to dato.ui.no_button_label, "/#{locale}/#{no_step.codename}", class: "button"
+          - if step.yes_step.present?
+            - yes_step = dato.steps.select{|s| s.codename == step.yes_step.codename }.first
+            = link_to dato.ui.yes_button_label, "/#{locale}/#{yes_step.codename}", class: "button"
 
-
-      = inline_svg "mentor.svg", class: "hint__icon"
