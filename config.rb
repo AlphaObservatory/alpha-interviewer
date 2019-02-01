@@ -6,7 +6,7 @@ set :url_root, ENV.fetch('BASE_URL')
 
 ignore '/templates/*'
 
-activate :i18n, langs: [:en, :it, :es, :fr, :zh], mount_at_root: false
+activate :i18n, langs: [:en, :it, :es, :fr, :pt, :zh], mount_at_root: false
 activate :asset_hash
 activate :directory_indexes
 activate :pagination
@@ -66,7 +66,7 @@ end
 proxy "/_redirects", "/templates/redirects.txt"
 
 dato.tap do |dato|
-  [:en, :it, :es, :fr, :zh].each do |locale|
+  [:en, :it, :es, :fr, :pt, :zh].each do |locale|
     I18n.with_locale(locale) do
       dato.steps.each do |step|
         I18n.locale = locale
