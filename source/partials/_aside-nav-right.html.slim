@@ -1,0 +1,13 @@
+.aside
+  .aside__header
+    .site-nav
+      .wrap
+        .site-nav__inner
+          .site-nav__left Menu
+
+          = link_to "#",
+            class: "modal-nav__menu-toggler js-nav-close" do
+            i.icon--cross.alpha
+
+  .aside__body
+    = partial "partials/menu", locals: {modifier: "--mobile"}
