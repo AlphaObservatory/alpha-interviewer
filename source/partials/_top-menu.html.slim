@@ -1,10 +1,15 @@
-.top-bar
+nav.site-nav
   .wrap
-    .top-bar__inner
-      .top-bar__logo
+    .site-nav__inner
+      .site-nav__left
         = link_to "/#{I18n.locale}" do
-          = image_tag "images/logo-wide.jpg"
-      .nav--dots.top-bar__nav
+          = image_tag "images/logo-wide.jpg", class: "site-nav__logo"
+
+      .site-nav__right
         - [:en, :es, :it, :fr, :pt, :zh ].each do |l|
           .nav__item.top-bar__nav__item class=("is-active" if I18n.locale == l)
             a href="/#{l}" #{t("langs.#{l}")}
+
+      = link_to "#",
+        class: "site-nav__menu-toggler js-nav-toggler--right" do
+        i.icon--hamburger

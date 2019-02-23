@@ -1,0 +1,8 @@
+- modifier ||= ""
+
+.steps-menu
+
+  - dato.steps.each do |s|
+    .steps-menu__item
+      = active_link_to s.codename,
+        "/#{I18n.locale}/#{s.codename}"
