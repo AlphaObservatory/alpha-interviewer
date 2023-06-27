@@ -6,7 +6,7 @@ nav.site-nav
           = image_tag "images/logo-wide.jpg", class: "site-nav__logo"
 
       .site-nav__right
-        - [:en, :es, :it, :fr, :pt, :zh ].each do |l|
+        - [:en, :es, :it, :fr, :pt, :zh, :tr ].each do |l|
           .nav__item.top-bar__nav__item class=("is-active" if I18n.locale == l)
             a href="/#{l}" #{t("langs.#{l}")}
 

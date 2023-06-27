@@ -6,7 +6,7 @@ set :url_root, ENV.fetch('BASE_URL')
 
 ignore '/templates/*'
 
-activate :i18n, langs: [:en, :it, :es, :fr, :pt, :zh], mount_at_root: false
+activate :i18n, langs: [:en, :it, :es, :fr, :pt, :zh, :tr], mount_at_root: false
 activate :asset_hash
 activate :directory_indexes
 activate :pagination
